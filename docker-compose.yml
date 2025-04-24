@@ -6,7 +6,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8069:8069"
+      - "8071:8069"  # Mapea al puerto 8071 localmente
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
@@ -16,7 +16,7 @@ services:
       - HOST=db
       - USER=odoo
       - PASSWORD=odoo
-    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base
+    command: odoo -d odoo --db_user=odoo --db_password=odoo -i base --without-demo=all
     restart: always
 
   db:
@@ -36,3 +36,4 @@ volumes:
     name: odoo-18-docker_odoo-web-data
   odoo-db-data:
     name: odoo-18-docker_odoo-db-data
+    
