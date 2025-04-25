@@ -1,4 +1,3 @@
-version: '3.8'
 
 services:
   odoo:
@@ -6,7 +5,7 @@ services:
     depends_on:
       - db
     ports:
-      - "8071:8069"  # Mapea al puerto 8071 localmente
+      - "8069:8069"
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
